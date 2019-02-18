@@ -3,6 +3,33 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor() {
+    super();
+    this.lastTickTime = new Date().getTime();
+
+    ////////////
+    // Initialize state here
+
+    ////////////
+
+
+    const animationFrameCallback = () => {
+      this.simulateCar(new Date().getTime() - this.lastTickTime);
+      this.lastTickTime = new Date().getTime();
+      window.requestAnimationFrame(animationFrameCallback);
+    }
+    window.requestAnimationFrame(animationFrameCallback);
+  }
+
+  // Fill this in
+  /**
+   * This function simulates the car.
+   * @param {number} lastTickDuration How long it's been since we last ticked
+   */
+  simulateCar(lastTickDuration) {
+    console.log('simulating');
+  }
+
   render() {
     return (
       <div className="App">
